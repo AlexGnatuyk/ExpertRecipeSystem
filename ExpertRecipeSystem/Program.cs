@@ -11,20 +11,19 @@ namespace ExpertRecipeSystem
     {
         static void Main(string[] args)
         {
-
-            var system = new CSVExpertSystem("Таблица переходов.csv", "Таблица вопросов.csv");
+            var expertSystem = new ExpertSystem("Таблица переходов.csv", "Таблица вопросов.csv");
             var endOf = false;
-            var result = system.NextQuestion("", out endOf);
+            var result = expertSystem.NextQuestion("", out endOf);
             while (true)
             {
-
                 if (result != null)
                 {
                     Console.WriteLine(result);
-                    result = system.NextQuestion(Console.ReadLine(), out endOf);
+                    result = expertSystem.NextQuestion(Console.ReadLine(), out endOf);
                 }
                 else
                 {
+                    Console.WriteLine(result);
                     Console.WriteLine("End");
                     break;
                 }
